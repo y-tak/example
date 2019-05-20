@@ -24,9 +24,12 @@ public class TstArticle {
             article.setTitle("Статья: " + i);
             article.setAuthor(author);
 
+            author.getArticles().add(article);
+
             manager.persist(article);
 
         }
+
 
         manager.getTransaction().commit();
 
@@ -34,8 +37,16 @@ public class TstArticle {
         List<Article> articles = manager.find(Author.class, 201).getArticles();
 
         for (Article article: articles){
-            System.out.println(article);
+            article.setTitle("новые стратьи "+article.getId());
+          //  System.out.println(article);
         }
+
+
+        manager.getTransaction().begin();
+        manager.merge(author);
+
+        manager.getTransaction().commit();
+
 
     }
 }

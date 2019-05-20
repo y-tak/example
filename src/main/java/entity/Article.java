@@ -10,7 +10,10 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String title;
-    private Author author;
+
+   @ManyToOne
+   @JoinColumn(name = "",nullable = false)
+       private Author author;
 
     public int getId() {
         return id;
