@@ -1,24 +1,27 @@
+
 package entity;
 
-import javax.persistence.*;
-
+        import javax.persistence.*;
+//META-INF
+//persistence.xml
 @Entity
 @Table
 public class UserTable {
-    ///1 варинант
-    //  @Id
-    //  @GeneratedValue(strategy=GenerationType.AUTO)
-
-    //2 варинант
-   // @Id
-  //  @TableGenerator(name = "tgenerator", allocationSize = 1, initialValue = 1)
-  //  @GeneratedValue(strategy=GenerationType.TABLE,generator = "tgenerator")
-     //Todo: проверить разные варианты генерации
-     //Todo: как генерируются SQL запросы,условия WHERE,  по нескольким таблицам
-    //3 варинант
+    //    1 вариант
 //    @Id
-//    @SequenceGenerator(name ="sgen",allocationSize = 1)
-//    @GeneratedValue(strategy=GenerationType.SEQUENCE,generator = "sgen")
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    2 вариант
+//    @Id
+//    @TableGenerator(
+//            name = "tgenerator",
+//            allocationSize = 1,
+//            initialValue = 1
+//    )
+//    @GeneratedValue(strategy = GenerationType.TABLE, generator = "tgenerator")
+//    3 вариант
+//    @Id
+//    @SequenceGenerator(name = "sgenerator", allocationSize = 1, initialValue = 1)
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sgenerator")
     private int id;
     private String login;
 
@@ -36,13 +39,5 @@ public class UserTable {
 
     public void setLogin(String login) {
         this.login = login;
-    }
-
-    @Override
-    public String toString() {
-        return "UserTable{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                '}';
     }
 }

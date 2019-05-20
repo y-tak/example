@@ -7,30 +7,30 @@
 
     <persistence-unit name="OrmExample" transaction-type="RESOURCE_LOCAL">
 
-
-        <class>
-            entity.UserTable
-        </class>
-
+        <!--<class>entity.UserTable</class>-->
+        <class>entity.Book</class>
+       <!-- <class>entity.Article</class>-->
+        <!--<class>entity.Author</class>-->
 
         <properties>
+            <!--строка подключения к бд-->
             <property name="javax.persistence.jdbc.url"
                       value="jdbc:postgresql://localhost:5433/BD"/>
-
+            <!--имя пользователя бд-->
             <property name="javax.persistence.jdbc.user" value="root"/>
+            <!--пароль бд-->
             <property name="javax.persistence.jdbc.password" value="root"/>
+            <!--используемый драйвер-->
             <property name="javax.persistence.jdbc.driver"
                       value="org.postgresql.Driver"/>
+
             <property name="eclipselink.logging.level" value="FINE"/>
             <property name="eclipselink.ddl-generation"
-                      value="create-or-extend-tables"/>
-
+                      value="create-tables"/>
             <!--none-->
-            <!--drope-and-create-->
-            <!--create table-->
+            <!--drop-and-create-tables-->
+            <!--create-tables-->
         </properties>
-
     </persistence-unit>
-
 
 </persistence>
